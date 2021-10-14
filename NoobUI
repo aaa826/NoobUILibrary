@@ -1,12 +1,6 @@
 local Library = {}
 
-
-
-
-
-
-
-function Library:Create(hubname, gamename, presetColor)
+function Library:Create(hubname, gamename)
     local Hub = Instance.new("ScreenGui")
     local Container = Instance.new("Frame")
     local UIListLayout = Instance.new("UIListLayout")
@@ -46,9 +40,9 @@ function Library:Create(hubname, gamename, presetColor)
 	Pages.Name = "Pages"
 	Pages.Parent = Container
 	
-	local Win = {}
+	local Window = {}
 
-function Win:Page(pagename, mainpage)
+function Window:Page(pagename, mainpage)
    	local TabHolder = Instance.new("ScrollingFrame")
    	 local Title = Instance.new("TextLabel")
    	 local Game = Instance.new("TextLabel")
