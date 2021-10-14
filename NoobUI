@@ -41,20 +41,21 @@ function Library:Create(hubname, gamename, presetColor)
     Section.Position = UDim2.new(0.301444054, 0, 0, 0)
     Section.Size = UDim2.new(0, 386, 0, 351)
     Section.CanvasSize = UDim2.new(0, 0, 1, 0)
-    Pages.Name = "Pages"
-    Pages.Parent = Container
     
-    local Win = {}
+   
+	Pages.Name = "Pages"
+	Pages.Parent = Container
+	
+	local Win = {}
 
 function Win:Page(pagename, mainpage)
-    local TabHolder = Instance.new("ScrollingFrame")
-    local Title = Instance.new("TextLabel")
-    local Game = Instance.new("TextLabel")
-    local PageButton = Instance.new("TextButton")
-    local UICorner = Instance.new("UICorner")
-    local PageButton2 = Instance.new("TextButton")
-    local UICorner_2 = Instance.new("UICorner")
-    local Pages = Instance.new("Folder")
+   	local TabHolder = Instance.new("ScrollingFrame")
+   	 local Title = Instance.new("TextLabel")
+   	 local Game = Instance.new("TextLabel")
+   	 local PageButton = Instance.new("TextButton")
+   	 local UICorner = Instance.new("UICorner")
+    	local UICorner_2 = Instance.new("UICorner")
+    	local Pages = Instance.new("Folder")
 
 
     TabHolder.Name = "TabHolder"
@@ -107,25 +108,13 @@ function Win:Page(pagename, mainpage)
     UICorner.CornerRadius = UDim.new(0.0299999993, 8)
     UICorner.Parent = PageButton
     
-    PageButton2.Name = "PageButton2"
-    PageButton2.Parent = TabHolder
-    PageButton2.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
-    PageButton2.Position = UDim2.new(0.0443037972, 0, 0.227920234, 0)
-    PageButton2.Size = UDim2.new(0, 145, 0, 41)
-    PageButton2.Font = Enum.Font.SourceSansLight
-    PageButton2.Text = "Page2"
-    PageButton2.TextColor3 = Color3.fromRGB(255, 255, 255)
-    PageButton2.TextScaled = true
-    PageButton2.TextSize = 14.000
-    PageButton2.TextWrapped = true
-    
-    UICorner_2.CornerRadius = UDim.new(0.0299999993, 8)
-    UICorner_2.Parent = PageButton2
-
+   
     if mainpage then
         Page.Visible = true
         PageButton.TextTransparency = 0
 end
+
+
 local PageItems = {}
     function PageItems:NewTitle(titlename, callback)
         local Label = Instance.new("Frame")
@@ -157,7 +146,7 @@ Title_2.TextColor3 = Color3.fromRGB(255, 255, 255)
 Title_2.TextScaled = true
 Title_2.TextSize = 14.000
 Title_2.TextWrapped = true
-
+end
 
 
     function PageItems:Button(buttonname, callback) 
@@ -203,8 +192,8 @@ Button.TextWrapped = true
 Button.TextXAlignment = Enum.TextXAlignment.Left
 Button.MouseButton1Click:Connect(function()
 pcall(callback)
-Page.CanvasSize = Page.CanvasSize + UDim2.new(0,0,0,UIListLayout_2.AbsoluteContentSize.Y)
     end)
+    Page.CanvasSize = Page.CanvasSize + UDim2.new(0,0,0,UIListLayout_2.AbsoluteContentSize.Y)
 end
 
 
