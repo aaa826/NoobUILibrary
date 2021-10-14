@@ -1,5 +1,11 @@
 local Library = {}
 
+
+
+
+
+
+
 function Library:Create(hubname, gamename, presetColor)
     local Hub = Instance.new("ScreenGui")
     local Container = Instance.new("Frame")
@@ -20,7 +26,7 @@ function Library:Create(hubname, gamename, presetColor)
 
     UICorner_19.CornerRadius = UDim.new(0.100000001, 8)
     UICorner_19.Parent = Hub
-    end)
+    end
     
     UIListLayout.Parent = TabHolder
     UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
@@ -114,7 +120,7 @@ function Win:Page(pagename, mainpage)
     PageButton2.TextWrapped = true
     
     UICorner_2.CornerRadius = UDim.new(0.0299999993, 8)
-    UICorner_2.Parent = PageButton2\
+    UICorner_2.Parent = PageButton2
 
     if mainpage then
         Page.Visible = true
@@ -198,8 +204,8 @@ Button.TextXAlignment = Enum.TextXAlignment.Left
 Button.MouseButton1Click:Connect(function()
 pcall(callback)
 Page.CanvasSize = Page.CanvasSize + UDim2.new(0,0,0,UIListLayout_2.AbsoluteContentSize.Y)
-    end
-end)
+    end)
+end
 
 
 function PageItems:NewTextbox(boxname, callback)
@@ -464,6 +470,7 @@ UIListLayout_2.Padding = UDim.new(0, 10)
 
 Pages.Name = "Pages"
 Pages.Parent = Hub
+end
 
 
 function PageItems:NewDropdown(dropdownname, itemlist, callback)
