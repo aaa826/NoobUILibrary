@@ -103,18 +103,21 @@ function Library:Create(hubname, gamename)
 		UIList.SortOrder = Enum.SortOrder.LayoutOrder
 		UIList.Padding = UDim.new(0, 10)
 		
+		
 		PageButton.Name = pagename or "PageButton"
 		PageButton.Parent = TabHolder
 		PageButton.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
-		PageButton.Position = UDim2.new(0.0443037972, 0, 0.227920234, 0)
-		PageButton.Size = UDim2.new(0, 145, 0, 41)
+		PageButton.BorderSizePixel = 0
+		PageButton.Position = UDim2.new(0.0408163257, 0, 0.0229226369, 0)
+		PageButton.Size = UDim2.new(0, 135, 0, 46)
+		PageButton.AutoButtonColor = false
 		PageButton.Font = Enum.Font.SourceSansLight
-		PageButton.Text = pagename or "PageButton"
+		PageButton.Text = pagename or "Page"
 		PageButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-		PageButton.TextScaled = true
-		PageButton.TextSize = 14.000
-		PageButton.TextWrapped = true
-		PageButton.Visible = true
+		PageButton.TextSize = 22.000
+		PageButton.TextTransparency = 0.74
+		PageButton.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+		PageButton.TextStrokeTransparency = 0.960
 
 		UICorner.CornerRadius = UDim.new(0.0299999993, 8)
 		UICorner.Parent = PageButton
