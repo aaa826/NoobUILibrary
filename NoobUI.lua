@@ -20,6 +20,8 @@ function Library:Create(hubname, gamename)
 	Container.BorderSizePixel = 0
 	Container.Position = UDim2.new(0.0888325274, 0, 0.166982934, 0)
 	Container.Size = UDim2.new(0, 554, 0, 351)
+	Container.Active = true
+	Container.Draggable = true
 
 	TabHolder.Name = "TabHolder"
 	TabHolder.Parent = Container
@@ -112,6 +114,7 @@ function Library:Create(hubname, gamename)
 		PageButton.TextScaled = true
 		PageButton.TextSize = 14.000
 		PageButton.TextWrapped = true
+		PageButton.Visible = true
 
 		UICorner.CornerRadius = UDim.new(0.0299999993, 8)
 		UICorner.Parent = PageButton
