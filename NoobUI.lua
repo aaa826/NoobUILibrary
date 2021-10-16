@@ -32,7 +32,7 @@ function Library:Create(hubname, gamename)
 	TabHolder.CanvasSize = UDim2.new(0, 0, 0.600000024, 0)
 	TabHolder.ScrollBarThickness = 0
 
-	Title.Name = "Title"
+	Title.Name = "Game"
 	Title.Parent = TabHolder
 	Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	Title.BackgroundTransparency = 1.000
@@ -75,8 +75,8 @@ function Library:Create(hubname, gamename)
 
 	UIListLayout.Parent = TabHolder
 	UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
-	UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-	UIListLayout.Padding = UDim.new(0, 14)
+	UIListLayout.SortOrder = Enum.SortOrder.Name
+	UIListLayout.Padding = UDim.new(0, 15)
 
 	Section.Name = "Section"
 	Section.Parent = Container
