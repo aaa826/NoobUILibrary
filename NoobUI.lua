@@ -3,14 +3,9 @@ local Library = {}
 function Library:Create(hubname, gamename)
 	local Hub = Instance.new("ScreenGui")
 	local Container = Instance.new("Frame")
-	local TabHolder = Instance.new("ScrollingFrame")
-	local Hubs = Instance.new("TextLabel")
-	local Game = Instance.new("TextLabel")
-	local PageButton = Instance.new("TextButton")
-	local UICorner = Instance.new("UICorner")
-	local UIListLayout = Instance.new("UIListLayout")
 	local Section = Instance.new("ScrollingFrame")
 	local Pages = Instance.new("Folder")
+	local UIListLayout = Instance.new("UIListLayout")
 	
 	Hub.Name = "Hub"
 	Hub.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -58,26 +53,6 @@ function Library:Create(hubname, gamename)
 	Game.TextSize = 14.000
 	Game.TextWrapped = true
 
-	PageButton.Name = "PageButton"
-	PageButton.Parent = TabHolder
-	PageButton.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
-	PageButton.Position = UDim2.new(0.0443037972, 0, 0.227920234, 0)
-	PageButton.Size = UDim2.new(0, 145, 0, 41)
-	PageButton.Font = Enum.Font.SourceSansLight
-	PageButton.Text = "Page1"
-	PageButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-	PageButton.TextScaled = true
-	PageButton.TextSize = 14.000
-	PageButton.TextWrapped = true
-
-	UICorner.CornerRadius = UDim.new(0.0299999993, 8)
-	UICorner.Parent = PageButton
-
-	UIListLayout.Parent = TabHolder
-	UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
-	UIListLayout.SortOrder = Enum.SortOrder.Name
-	UIListLayout.Padding = UDim.new(0, 15)
-
 	Section.Name = "Section"
 	Section.Parent = Container
 	Section.Active = true
@@ -86,7 +61,7 @@ function Library:Create(hubname, gamename)
 	Section.Position = UDim2.new(0.301444054, 0, 0, 0)
 	Section.Size = UDim2.new(0, 386, 0, 351)
 	Section.CanvasSize = UDim2.new(0, 0, 1, 0)
-	
+
 	UIListLayout_2.Parent = Section
 	UIListLayout_2.HorizontalAlignment = Enum.HorizontalAlignment.Center
 	UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
@@ -94,19 +69,24 @@ function Library:Create(hubname, gamename)
 
 	UICorner_12.CornerRadius = UDim.new(0.100000001, 8)
 	UICorner_12.Parent = Hub
-	
+
 	Pages.Name = "Pages"
 	Pages.Parent = Container
-	
+
 	local Win = {}
-	
+
 	function Win:Page(pagename, mainpage)
 		local UIList = Instance.new("UIListLayout")
 		local Page = Instance.new("ScrollingFrame")
 		local UICorner_12 = Instance.new("UICorner")
+		local TabHolder = Instance.new("ScrollingFrame")
+		local Hubs = Instance.new("TextLabel")
+		local Game = Instance.new("TextLabel")
+		local PageButton = Instance.new("TextButton")
+		local UICorner = Instance.new("UICorner")
 		
-		
-		Page.Name = pagename or "Page"
+
+		Page.Name = "Page"
 		Page.Parent = Container
 		Page.Active = true
 		Page.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -115,27 +95,48 @@ function Library:Create(hubname, gamename)
 		Page.Size = UDim2.new(0, 386, 0, 351)
 		Page.Visible = false
 		Page.CanvasSize = UDim2.new(0, 0, 1, 0)
-		
+
 		UIList.Parent = Page
 		UIList.HorizontalAlignment = Enum.HorizontalAlignment.Center
 		UIList.SortOrder = Enum.SortOrder.LayoutOrder
 		UIList.Padding = UDim.new(0, 10)
 		
+		PageButton.Name = pagename or "PageButton"
+		PageButton.Parent = TabHolder
+		PageButton.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
+		PageButton.Position = UDim2.new(0.0443037972, 0, 0.227920234, 0)
+		PageButton.Size = UDim2.new(0, 145, 0, 41)
+		PageButton.Font = Enum.Font.SourceSansLight
+		PageButton.Text = pagename or "PageButton"
+		PageButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+		PageButton.TextScaled = true
+		PageButton.TextSize = 14.000
+		PageButton.TextWrapped = true
+
+		UICorner.CornerRadius = UDim.new(0.0299999993, 8)
+		UICorner.Parent = PageButton
+
+		UIListLayout.Parent = TabHolder
+		UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+		UIListLayout.SortOrder = Enum.SortOrder.Name
+		UIListLayout.Padding = UDim.new(0, 15)
+
+
 		if mainpage then
 			Page.Visible = true
-			PageButton.TextTransparency = 0
+			PageButton1.TextTransparency = 0
 		end
 		local PageItems = {}
-		
+
 		function PageItems:NewButton(buttonname, callback)
 			local callback = callback or function() end
-			
+
 			local ButtonStuff = Instance.new("Frame")
 			local UICorner_2 = Instance.new("UICorner")
 			local Button = Instance.new("TextButton")
 			local UICorner_3 = Instance.new("UICorner")
 			local ImageLabel = Instance.new("ImageLabel")
-			
+
 
 			ButtonStuff.Name = "ButtonStuff"
 			ButtonStuff.Parent = Section
@@ -169,13 +170,13 @@ function Library:Create(hubname, gamename)
 			ImageLabel.Position = UDim2.new(0.909367621, 0, 0.151766971, 0)
 			ImageLabel.Size = UDim2.new(0, 27, 0, 16)
 			ImageLabel.Image = "http://www.roblox.com/asset/?id=6031229361"
-			
+
 			TextButton.MouseButton1Click:Connect(function()
 				pcall(callback)
 			end)
 
 			Page.CanvasSize = Page.CanvasSize + UDim2.new(0,0,0,UIListLayout_2.AbsoluteContentSize.Y)
-			
+
 		end
 		function PageItems:NewToggle(togglename, callback)
 			local callback = callback or function() end
@@ -184,7 +185,7 @@ function Library:Create(hubname, gamename)
 			local UICorner_10 = Instance.new("UICorner")
 			local Circle = Instance.new("TextButton")
 			local UICorner_11 = Instance.new("UICorner")
-			
+
 			Toggle1.Name = "Toggle1"
 			Toggle1.Parent = Section
 			Toggle1.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
@@ -236,7 +237,7 @@ function Library:Create(hubname, gamename)
 
 			UICorner_11.CornerRadius = UDim.new(0.100000001, 8)
 			UICorner_11.Parent = Circle
-			
+
 			local toggled = false
 
 			Circle.MouseButton1Down:Connect(function()
@@ -259,13 +260,13 @@ function Library:Create(hubname, gamename)
 			end)
 
 			Page.CanvasSize = Page.CanvasSize + UDim2.new(0,0,0,UIListLayout_2.AbsoluteContentSize.Y)
-			
-			
-			
+
+
+
 		end
 		function PageItems:NewSlider(slidername, callback)
 			local callback = callback or function() end
-			
+
 			local Slider = Instance.new("Frame")
 			local UICorner_6 = Instance.new("UICorner")
 			local ImageLabel_4 = Instance.new("ImageLabel")
@@ -276,7 +277,7 @@ function Library:Create(hubname, gamename)
 			local InnerSlider = Instance.new("Frame")
 			local uilocate = Instance.new("TextButton")
 			local UICorner_8 = Instance.new("UICorner")
-			
+
 			Slider.Name = "Slider"
 			Slider.Parent = Section
 			Slider.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
@@ -349,7 +350,7 @@ function Library:Create(hubname, gamename)
 
 			UICorner_8.CornerRadius = UDim.new(0.100000001, 8)
 			UICorner_8.Parent = InnerSlider
-			
+
 			uilocate.MouseButton1Down:Connect(function()
 				Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 244) *InnerSlider.AbsoluteSize.X) + tonumber(minvalue)) or 0
 				pcall(function()
@@ -390,7 +391,7 @@ function Library:Create(hubname, gamename)
 			local Button_3 = Instance.new("TextButton")
 			local UICorner_5 = Instance.new("UICorner")
 			local ImageLabel_3 = Instance.new("ImageLabel")
-			
+
 
 			Dropdown.Name = "Dropdown"
 			Dropdown.Parent = Section
@@ -456,16 +457,16 @@ function Library:Create(hubname, gamename)
 			ImageLabel_3.Image = "http://www.roblox.com/asset/?id=6031229361"
 
 			Page.CanvasSize = Page.CanvasSize + UDim2.new(0,0,0,UIListLayout_2.AbsoluteContentSize.Y)
-			
+
 		end
-		
+
 		return PageItems
-		
-		
+
+
 	end
-	
+
 	return Win
-	
+
 end
 
 return Library
