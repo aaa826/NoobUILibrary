@@ -5,4 +5,5 @@ Windows:NewButton("ButtonName", true) --New Button
 Windows:NewToggle("ToggleName", true) --New Toggle
 Windows:NewDropdown("Dropdownname", {"DropdownItem1", "DropdownItem2", "DropdownItem3"}, true)
 Windows:NewSlider("Xd", true)
-  
+local Player = Win:Page("PageName2", false) -- notice the difference?
+Player:NewToggle("test", true)
