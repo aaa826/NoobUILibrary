@@ -132,7 +132,7 @@ function Library:Create(hubname, gamename, presetColor)
 
 		if mainpage then
 			Page.Visible = true
-			PageButton1.TextTransparency = 0
+			PageButton.TextTransparency = 0
 		end
 		local PageItems = {}
 
