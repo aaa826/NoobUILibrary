@@ -4,7 +4,7 @@ function Library:Create(hubname, gamename)
 	local Hub = Instance.new("ScreenGui")
 	local Container = Instance.new("Frame")
 	local TabHolder = Instance.new("ScrollingFrame")
-	local Title = Instance.new("TextLabel")
+	local Hubs = Instance.new("TextLabel")
 	local Game = Instance.new("TextLabel")
 	local PageButton = Instance.new("TextButton")
 	local UICorner = Instance.new("UICorner")
@@ -32,18 +32,18 @@ function Library:Create(hubname, gamename)
 	TabHolder.CanvasSize = UDim2.new(0, 0, 0.600000024, 0)
 	TabHolder.ScrollBarThickness = 0
 
-	Title.Name = "Game"
-	Title.Parent = TabHolder
-	Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	Title.BackgroundTransparency = 1.000
-	Title.Position = UDim2.new(0.0886075944, 0, 0.0170940123, 0)
-	Title.Size = UDim2.new(0, 130, 0, 50)
-	Title.Font = Enum.Font.SourceSansLight
-	Title.Text = "NoobHub"
-	Title.TextColor3 = Color3.fromRGB(255, 255, 255)
-	Title.TextScaled = true
-	Title.TextSize = 14.000
-	Title.TextWrapped = true
+	Hubs.Name = "Hubs"
+	Hubs.Parent = TabHolder
+	Hubs.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Hubs.BackgroundTransparency = 1.000
+	Hubs.Position = UDim2.new(0.0886075944, 0, 0.0170940123, 0)
+	Hubs.Size = UDim2.new(0, 130, 0, 50)
+	Hubs.Font = Enum.Font.SourceSansLight
+	Hubs.Text = "NoobHub"
+	Hubs.TextColor3 = Color3.fromRGB(255, 255, 255)
+	Hubs.TextScaled = true
+	Hubs.TextSize = 14.000
+	Hubs.TextWrapped = true
 
 	Game.Name = "Game"
 	Game.Parent = Title
