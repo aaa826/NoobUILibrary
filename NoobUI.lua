@@ -41,7 +41,7 @@ function Library:Create(hubname, gamename)
 	Hubs.TextWrapped = true
 
 	Game.Name = "Game"
-	Game.Parent = Title
+	Game.Parent = Hubs
 	Game.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	Game.BackgroundTransparency = 1.000
 	Game.Position = UDim2.new(-0.00370009989, 0, 0.839544177, 0)
