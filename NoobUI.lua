@@ -110,7 +110,7 @@ function Library:Create(hubname, gamename)
 		PageButton.BorderSizePixel = 0
 		PageButton.Position = UDim2.new(0.0408163257, 0, 0.0229226369, 0)
 		PageButton.Size = UDim2.new(0, 135, 0, 46)
-		PageButton.AutoButtonColor = false
+		PageButton.AutoButtonColor = true
 		PageButton.Font = Enum.Font.SourceSansLight
 		PageButton.Text = pagename or "Page"
 		PageButton.TextColor3 = Color3.fromRGB(255, 255, 255)
