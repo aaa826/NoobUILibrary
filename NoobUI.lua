@@ -1,6 +1,6 @@
 local Library = {}
 
-function Library:Create(hubname, gamename)
+function Library:Create(hubname, gamename, presetColor)
 	local Hub = Instance.new("ScreenGui")
 	local Container = Instance.new("Frame")
 	local Section = Instance.new("ScrollingFrame")
