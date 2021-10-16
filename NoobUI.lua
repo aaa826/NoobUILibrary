@@ -88,20 +88,6 @@ function Library:Create(hubname, gamename, presetColor)
 		local UICorner = Instance.new("UICorner")
 		
 
-		Page.Name = "Page"
-		Page.Parent = Container
-		Page.Active = true
-		Page.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		Page.BackgroundTransparency = 1.000
-		Page.Position = UDim2.new(0.301444054, 0, 0, 0)
-		Page.Size = UDim2.new(0, 386, 0, 351)
-		Page.Visible = false
-		Page.CanvasSize = UDim2.new(0, 0, 1, 0)
-
-		UIList.Parent = Page
-		UIList.HorizontalAlignment = Enum.HorizontalAlignment.Center
-		UIList.SortOrder = Enum.SortOrder.LayoutOrder
-		UIList.Padding = UDim.new(0, 10)
 		
 		
 		PageButton.Name = pagename or "PageButton"
@@ -118,9 +104,25 @@ function Library:Create(hubname, gamename, presetColor)
 		PageButton.TextTransparency = 0.74
 		PageButton.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
 		PageButton.TextStrokeTransparency = 0.960
+        PageButton.Visible = true
 
 		UICorner.CornerRadius = UDim.new(0.0299999993, 8)
 		UICorner.Parent = PageButton
+
+        Page.Name = "Page"
+		Page.Parent = Pages
+		Page.Active = true
+		Page.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		Page.BackgroundTransparency = 1.000
+		Page.Position = UDim2.new(0.301444054, 0, 0, 0)
+		Page.Size = UDim2.new(0, 386, 0, 351)
+		Page.Visible = false
+		Page.CanvasSize = UDim2.new(0, 0, 1, 0)
+
+		UIList.Parent = Page
+		UIList.HorizontalAlignment = Enum.HorizontalAlignment.Center
+		UIList.SortOrder = Enum.SortOrder.LayoutOrder
+		UIList.Padding = UDim.new(0, 10)
 
 		UIListLayout.Parent = TabHolder
 		UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
