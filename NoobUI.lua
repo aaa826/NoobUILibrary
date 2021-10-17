@@ -1,6 +1,6 @@
 local Library = {}
 
-function Library:Create(hubname, gamename, presetColor)
+function Library:Create(hubname, gamename)
 	local Hub = Instance.new("ScreenGui")
 	local Container = Instance.new("Frame")
 	local Section = Instance.new("ScrollingFrame")
@@ -39,7 +39,7 @@ function Library:Create(hubname, gamename, presetColor)
 	Hubs.Position = UDim2.new(0.0886075944, 0, 0.0170940123, 0)
 	Hubs.Size = UDim2.new(0, 130, 0, 50)
 	Hubs.Font = Enum.Font.SourceSansLight
-	Hubs.Text = "NoobHub"
+	Hubs.Text = hubname or "hub name"
 	Hubs.TextColor3 = Color3.fromRGB(255, 255, 255)
 	Hubs.TextScaled = true
 	Hubs.TextSize = 14.000
@@ -52,7 +52,7 @@ function Library:Create(hubname, gamename, presetColor)
 	Game.Position = UDim2.new(-0.00370009989, 0, 0.839544177, 0)
 	Game.Size = UDim2.new(0, 130, 0, 24)
 	Game.Font = Enum.Font.SourceSansLight
-	Game.Text = "Jailbreak"
+	Game.Text =  gamename or "gamename"
 	Game.TextColor3 = Color3.fromRGB(255, 255, 255)
 	Game.TextScaled = true
 	Game.TextSize = 14.000
@@ -76,7 +76,7 @@ function Library:Create(hubname, gamename, presetColor)
 	UICorner_12.Parent = Hub
 
 	Pages.Name = "Pages"
-	Pages.Parent = Container
+	Pages.Parent = Section
 
 	local Win = {}
 
@@ -109,7 +109,7 @@ function Library:Create(hubname, gamename, presetColor)
 		UICorner.CornerRadius = UDim.new(0.0299999993, 8)
 		UICorner.Parent = PageButton
 
-        Page.Name = "Page"
+       		Page.Name = "Page"
 		Page.Parent = Pages
 		Page.Active = true
 		Page.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -179,7 +179,7 @@ function Library:Create(hubname, gamename, presetColor)
 			ImageLabel.Size = UDim2.new(0, 27, 0, 16)
 			ImageLabel.Image = "http://www.roblox.com/asset/?id=6031229361"
 
-			TextButton.MouseButton1Click:Connect(function()
+			Button.MouseButton1Click:Connect(function()
 				pcall(callback)
 			end)
 
@@ -366,7 +366,7 @@ function Library:Create(hubname, gamename, presetColor)
 				end)
 				InnerSlider.Size = UDim2.new(0, math.clamp(mouse.X -InnerSlider.AbsolutePosition.X, 0, 244), 0, 9)
 				moveconnection = mouse.Move:Connect(function()
-					TextLabel_6.Text = Value
+					value.Text = Value
 					Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 244) *InnerSlider.AbsoluteSize.X) + tonumber(minvalue))
 					pcall(function()
 						callback(Value)
