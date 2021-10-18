@@ -66,6 +66,7 @@ function Library:Create(hubname, gamename)
 	Section.Position = UDim2.new(0.301444054, 0, 0, 0)
 	Section.Size = UDim2.new(0, 386, 0, 351)
 	Section.CanvasSize = UDim2.new(0, 0, 1, 0)
+	
 
 	UIListLayout_2.Parent = Section
 	UIListLayout_2.HorizontalAlignment = Enum.HorizontalAlignment.Center
@@ -105,11 +106,17 @@ function Library:Create(hubname, gamename)
 		PageButton.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
 		PageButton.TextStrokeTransparency = 0.960
         PageButton.Visible = true
+		PageButton.MouseButton1Down:Connect(function()
+			for i, v in in next, Pages:GetChildren() do 
+			v.Visible = false
+			end
+			Page.Visible = true
+		end)
 
 		UICorner.CornerRadius = UDim.new(0.0299999993, 8)
 		UICorner.Parent = PageButton
 
-       		Page.Name = "Page"
+       	Page.Name = "Page"
 		Page.Parent = Pages
 		Page.Active = true
 		Page.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -118,6 +125,9 @@ function Library:Create(hubname, gamename)
 		Page.Size = UDim2.new(0, 386, 0, 351)
 		Page.Visible = false
 		Page.CanvasSize = UDim2.new(0, 0, 1, 0)
+		if Main == true then
+			Page.Visible = true
+		end
 
 		UIList.Parent = Page
 		UIList.HorizontalAlignment = Enum.HorizontalAlignment.Center
@@ -162,7 +172,7 @@ function Library:Create(hubname, gamename)
 			Button.Position = UDim2.new(0.0286620762, 0, 0.342024326, 0)
 			Button.Size = UDim2.new(0, 345, 0, 25)
 			Button.Font = Enum.Font.SourceSansLight
-			Button.Text = "Box"
+			Button.Text = buttonname or "Button-name"
 			Button.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Button.TextScaled = true
 			Button.TextSize = 14.000
@@ -210,7 +220,7 @@ function Library:Create(hubname, gamename)
 			Title_3.Position = UDim2.new(0.0961236358, 0, 0.224999994, 0)
 			Title_3.Size = UDim2.new(0, 78, 0, 21)
 			Title_3.Font = Enum.Font.SourceSansLight
-			Title_3.Text = "Toggle"
+			Title_3.Text = togglename or "Toggle"
 			Title_3.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Title_3.TextScaled = true
 			Title_3.TextSize = 14.000
@@ -310,7 +320,7 @@ function Library:Create(hubname, gamename)
 			Title_2.Position = UDim2.new(0.0886075795, 0, 0.213522628, 0)
 			Title_2.Size = UDim2.new(0, 75, 0, 32)
 			Title_2.Font = Enum.Font.SourceSansLight
-			Title_2.Text = "WalkSpeed"
+			Title_2.Text = slidername or "Slidername"
 			Title_2.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Title_2.TextScaled = true
 			Title_2.TextSize = 14.000
@@ -395,17 +405,30 @@ function Library:Create(hubname, gamename)
 			local Button_2 = Instance.new("TextButton")
 			local ImageLabel_2 = Instance.new("ImageLabel")
 			local UICorner_4 = Instance.new("UICorner")
-			local Dropdownstuff = Instance.new("Frame")
+			local itemlist = Instance.new("Frame")
 			local Button_3 = Instance.new("TextButton")
 			local UICorner_5 = Instance.new("UICorner")
 			local ImageLabel_3 = Instance.new("ImageLabel")
 
+			local itemnumber = 0 
+			local pagesize = 0
+			local dropopened = false
 
 			Dropdown.Name = "Dropdown"
 			Dropdown.Parent = Section
 			Dropdown.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
 			Dropdown.Position = UDim2.new(0.0388119556, 0, 0.748530805, 0)
 			Dropdown.Size = UDim2.new(0, 378, 0, 40)
+
+			itemlist.Name = "itemlist"
+			itemlist.Parent = Dropdown
+			itemlist.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+			itemlist.BorderSizePixel = 0
+			itemlist.Position = UDim2.new(-0.00793650839, 0, 1.17499995, 0)
+			itemlist.Size = UDim2.new(0, 381, 0, 172)
+			itemlist.Visible = false
+
+			
 
 			Button_2.Name = "Button"
 			Button_2.Parent = Dropdown
@@ -415,12 +438,64 @@ function Library:Create(hubname, gamename)
 			Button_2.Position = UDim2.new(0.286541492, 0, -0.0121429451, 0)
 			Button_2.Size = UDim2.new(0, 198, 0, 36)
 			Button_2.Font = Enum.Font.SourceSansLight
-			Button_2.Text = "Dropdown"
+			Button_2.Text = dropdownname or "Dropdown"
 			Button_2.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Button_2.TextScaled = true
 			Button_2.TextSize = 14.000
 			Button_2.TextWrapped = true
 			Button_2.TextXAlignment = Enum.TextXAlignment.Left
+			Button_2.MouseButton1Down:Connect(function()
+				for i,v in next, itemlist do 
+					itemnumber, = itemnumber + 1 
+					pagesize = pagesize + 50
+					local Button_3 = Instance.new("TextButton")
+					Button_3.Name = "Button"
+					Button_3.Parent = Dropdownstuff
+					Button_3.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+					Button_3.BorderSizePixel = 0
+					Button_3.Position = UDim2.new(0.0286620762, 0, 0.342024326, 0)
+					Button_3.Size = UDim2.new(0, 345, 0, 25)
+					Button_3.Font = Enum.Font.SourceSansLight
+					Button_3.Text = "Box"
+					Button_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+					Button_3.TextScaled = true
+					Button_3.TextSize = 14.000
+					Button_3.TextWrapped = true
+					Button_3.TextXAlignment = Enum.TextXAlignment.Left
+					Button_3.MouseButton1Down:Connect(function()
+						Button_2.Size = UDim2.new(0, 381, 0, 172)
+						Button_2.Text = dropdownname.."-"..v
+						pcall(callback,v)
+						dropopened = false
+				end)
+
+
+
+			  end
+
+			  Button_2.MouseButton1Down:Connect(function()
+				if dropopened then
+					Dropdownstuff.Size = UDim2.new(0, 381, 0, 172)
+				else
+					Dropdownstuff.Size = UDim2.new(0, 381, 0, 172 + pagesize)
+				end
+
+				dropopened = not dropopened
+
+			  end)
+
+				UICorner_5.CornerRadius = UDim.new(0.0299999993, 8)
+				UICorner_5.Parent = Button_3
+
+				ImageLabel_3.Parent = Button_3
+				ImageLabel_3.BackgroundTransparency = 1.000
+				ImageLabel_3.BorderSizePixel = 0
+				ImageLabel_3.Position = UDim2.new(0.909367621, 0, 0.151766971, 0)
+				ImageLabel_3.Size = UDim2.new(0, 27, 0, 16)
+				ImageLabel_3.Image = "http://www.roblox.com/asset/?id=6031229361"
+			end)
+
+		
 
 			ImageLabel_2.Parent = Button_2
 			ImageLabel_2.BackgroundTransparency = 1.000
@@ -432,37 +507,7 @@ function Library:Create(hubname, gamename)
 			UICorner_4.CornerRadius = UDim.new(0.0299999993, 8)
 			UICorner_4.Parent = Dropdown
 
-			Dropdownstuff.Name = "Dropdownstuff"
-			Dropdownstuff.Parent = Dropdown
-			Dropdownstuff.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-			Dropdownstuff.BorderSizePixel = 0
-			Dropdownstuff.Position = UDim2.new(-0.00793650839, 0, 1.17499995, 0)
-			Dropdownstuff.Size = UDim2.new(0, 381, 0, 172)
-			Dropdownstuff.Visible = false
-
-			Button_3.Name = "Button"
-			Button_3.Parent = Dropdownstuff
-			Button_3.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-			Button_3.BorderSizePixel = 0
-			Button_3.Position = UDim2.new(0.0286620762, 0, 0.342024326, 0)
-			Button_3.Size = UDim2.new(0, 345, 0, 25)
-			Button_3.Font = Enum.Font.SourceSansLight
-			Button_3.Text = "Box"
-			Button_3.TextColor3 = Color3.fromRGB(255, 255, 255)
-			Button_3.TextScaled = true
-			Button_3.TextSize = 14.000
-			Button_3.TextWrapped = true
-			Button_3.TextXAlignment = Enum.TextXAlignment.Left
-
-			UICorner_5.CornerRadius = UDim.new(0.0299999993, 8)
-			UICorner_5.Parent = Button_3
-
-			ImageLabel_3.Parent = Button_3
-			ImageLabel_3.BackgroundTransparency = 1.000
-			ImageLabel_3.BorderSizePixel = 0
-			ImageLabel_3.Position = UDim2.new(0.909367621, 0, 0.151766971, 0)
-			ImageLabel_3.Size = UDim2.new(0, 27, 0, 16)
-			ImageLabel_3.Image = "http://www.roblox.com/asset/?id=6031229361"
+			
 
 			Page.CanvasSize = Page.CanvasSize + UDim2.new(0,0,0,UIListLayout_2.AbsoluteContentSize.Y)
 
@@ -478,7 +523,6 @@ function Library:Create(hubname, gamename)
 end
 
 return Library
-
 
 
 
