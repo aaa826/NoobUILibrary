@@ -19,7 +19,7 @@ Next you do:
 ```
 CONGRATS! You initizaled the UI Library! But we arent done. To make a page put this code in
 ```lua
-    Window:Page("PageName", true)
+  local PageName = Window:Page("PageName", true)
 ```
 However if you want to make another page use this code(2nd page only!)
 ```lua
