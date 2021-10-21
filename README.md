@@ -19,7 +19,7 @@ Next you do:
 ```
 CONGRATS! You initizaled the UI Library! But we arent done. To make a page put this code in
 ```lua
-  local PageName = Window:Page("PageName", true)
+  local Page = Window:Page("PageName", true)
 ```
 However if you want to make another page use this code(2nd page only!)
 ```lua
@@ -30,6 +30,7 @@ BEFORE YOU DIVE IN TO THE NEXT SECTION MAKE SURE TO CHANGE Pagename TO YOUR PAGE
 Dropdown
 ```lua
    Pagename:NewDropdown("Dropdownname", {"item1", "item2", "item3",}, function()
+   print("pagename")
  end)
 ```
 Button
@@ -46,8 +47,8 @@ end)
 ```
 Slider
 ```lua
-   Pagename:NewSlider:("Slidername", function(v)
-   game.Players.LocalPlayer.Character.Humanoid.Walkspeed = v
+   Pagename:NewSlider:("Slidername", function()
+   print("codehere")
 end)
 ```
 So the completed code should look like:
@@ -68,4 +69,5 @@ end)
 Page:NewSlider("Slidername", function()
 print("codehere")
 end)
+local Page2 = ("pagename2", false)
 ```
