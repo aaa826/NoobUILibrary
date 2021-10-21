@@ -29,17 +29,24 @@ BEFORE YOU DIVE IN TO THE NEXT SECTION MAKE SURE TO CHANGE Pagename TO YOUR PAGE
 
 Dropdown
 ```lua
-   Pagename:NewDropdown("Dropdownname", {"item1", "item2", "item3", true})
+   Pagename:NewDropdown("Dropdownname", {"item1", "item2", "item3",}, function()
+ end)
 ```
 Button
 ```lua
-   PageName:NewButton("ButtonName", true)
+   PageName:NewButton("ButtonName", function()
+   print("Codehere")
+end)
 ```
 Toggle
 ```lua
-   Pagename:NewToggle("Togglename", true)
+   Pagename:NewToggle("Togglename", function()
+   print("CodeHere")
+end)
 ```
 Slider
 ```lua
-   Pagename:Slider 
+   Pagename:Slider:("Slidername", function(v)
+   game.Players.LocalPlayer.Character.Humanoid.Walkspeed = v
+end)
 ```
