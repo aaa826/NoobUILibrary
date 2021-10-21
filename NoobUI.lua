@@ -3,7 +3,6 @@ local Library = {}
 function Library:Create(hubname, gamename)
 	local Hub = Instance.new("ScreenGui")
 	local Container = Instance.new("Frame")
-	local Section = Instance.new("ScrollingFrame")
 	local TabHolder = Instance.new("ScrollingFrame")
 	local Hubs = Instance.new("TextLabel")
 	local Game = Instance.new("TextLabel")
@@ -57,15 +56,6 @@ function Library:Create(hubname, gamename)
 	Game.TextScaled = true
 	Game.TextSize = 14.000
 	Game.TextWrapped = true
-
-	Section.Name = "Section"
-	Section.Parent = Container
-	Section.Active = true
-	Section.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	Section.BackgroundTransparency = 1.000
-	Section.Position = UDim2.new(0.301444054, 0, 0, 0)
-	Section.Size = UDim2.new(0, 386, 0, 351)
-	Section.CanvasSize = UDim2.new(0, 0, 1, 0)
 	
 
 	UIListLayout_2.Parent = Section
@@ -116,7 +106,7 @@ function Library:Create(hubname, gamename)
 		UICorner.CornerRadius = UDim.new(0.0299999993, 8)
 		UICorner.Parent = PageButton
 
-       	Page.Name = "Page"
+      	 	Page.Name = "Page"
 		Page.Parent = Pages
 		Page.Active = true
 		Page.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
