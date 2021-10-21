@@ -1,6 +1,9 @@
 # NoobUILibrary Documentation
 Powerful UI Library for roblox.
 Documentation:
+You could always take a look at file Example.lua
+or click this to see it 
+[Example.lua](#Example.lua)
 First, Before anything else. Paste this into the script.
 ```lua
    local urlocalname = loadstring(game:HttpGet("https://raw.githubusercontent.com/aaa826/NoobUILibrary/main/NoobUI.lua"))()
@@ -27,4 +30,12 @@ Dropdown
 Button
 ```lua
    PageName:NewButton("ButtonName", true)
+```
+Toggle
+```lua
+   Pagename:NewToggle("Togglename", true)
+```
+Slider
+```lua
+   Pagename:Slider 
 ```
