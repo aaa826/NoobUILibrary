@@ -3,7 +3,11 @@ Powerful UI Library for roblox.
 Documentation:
 You could always take a look at file Example.lua
 or click this to see it 
-[Example.lua](#Example.lua)
+
+
+[Example](Example.lua)
+
+
 First, Before anything else. Paste this into the script.
 ```lua
    local urlocalname = loadstring(game:HttpGet("https://raw.githubusercontent.com/aaa826/NoobUILibrary/main/NoobUI.lua"))()
