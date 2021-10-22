@@ -27,25 +27,25 @@ However if you want to make another page use this code(2nd page only!)
 ```
 BEFORE YOU DIVE IN TO THE NEXT SECTION MAKE SURE TO CHANGE Pagename TO YOUR PAGE'S NAME SO FOR EX IF UR PAGE NAME IS Main THEN DO Main:Newdropdown() or NewButton basicly you get the point 
 
-Dropdown
+How to make a Dropdown
 ```lua
    Pagename:NewDropdown("Dropdownname", {"item1", "item2", "item3",}, function()
    print("pagename")
  end)
 ```
-Button
+How to make a Button
 ```lua
    PageName:NewButton("ButtonName", function()
    print("Codehere")
 end)
 ```
-Toggle
+How to make a Toggle
 ```lua
    Pagename:NewToggle("Togglename", function()
    print("CodeHere")
 end)
 ```
-Slider
+How to make a Slider
 ```lua
    Pagename:NewSlider:("Slidername", function()
    print("codehere")
