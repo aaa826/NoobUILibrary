@@ -19,11 +19,11 @@ Next you do:
 ```
 CONGRATS! You initizaled the UI Library! But we arent done. To make a page put this code in
 ```lua
-  local Page = Window:Page("PageName", true)
+  local Pagename = Window:Page("PageName", true)
 ```
 However if you want to make another page use this code(2nd page only!)
 ```lua
-   Window:Page("Pagename2", false) 
+   local 2ndpagename = Window:Page("Pagename2", false) 
 ```
 BEFORE YOU DIVE IN TO THE NEXT SECTION MAKE SURE TO CHANGE Pagename TO YOUR PAGE'S NAME SO FOR EX IF UR PAGE NAME IS Main THEN DO Main:Newdropdown() or NewButton basicly you get the point 
 
