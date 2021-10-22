@@ -226,7 +226,7 @@ function Library:Create(hubname, gamename)
 
 			toggle.Name = "toggle"
 			toggle.Parent = Toggle1
-			toggle.BackgroundColor3 = Color3.fromRGB(0, 203, 203)
+			toggle.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 			toggle.Position = UDim2.new(0.843273222, 0, 0.224999994, 0)
 			toggle.Size = UDim2.new(0, 48, 0, 21)
 
@@ -252,7 +252,7 @@ function Library:Create(hubname, gamename)
 
 				if toggled == false then
 
-					TS:Create(TextButton_Roundify_8px_2, TweenInfo.new(0.2), {Position = UDim2.new(0.65, 0,0.286, 0)}):Play()
+					TS:Create(TextButton_Roundify_8px_2, TweenInfo.new(0.2), {Position = UDim2.new(30, 30, 30)}):Play()
 					TS:Create(TextButton_Roundify_8px, TweenInfo.new(0.2), {ImageColor3 = presetColor}):Play()
 
 				else
