@@ -2,7 +2,7 @@
 
 local Library = {}
 
-function Library:Create(hubname, gamename)
+function Library:Create(hubname, gamename, presetColor)
 	local Hub = Instance.new("ScreenGui")
 	local Container = Instance.new("Frame")
 	local TabHolder = Instance.new("ScrollingFrame")
@@ -238,7 +238,7 @@ function Library:Create(hubname, gamename)
 			Circle.Name = "Circle"
 			Circle.Parent = toggle
 			Circle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			Circle.Position = UDim2.new(-5.96046448e-08, 0, 0, 0)
+			Circle.Position = UDim2.new(-0.021, 3, 0, 0)
 			Circle.Size = UDim2.new(0, 22, 0, 21)
 			Circle.Font = Enum.Font.SourceSans
 			Circle.Text = ""
@@ -249,18 +249,18 @@ function Library:Create(hubname, gamename)
 			UICorner_11.Parent = Circle
 
 			local toggled = false
-
+            local TS = 
 			Circle.MouseButton1Down:Connect(function()
 
 				if toggled == false then
 
-					TS:Create(TextButton_Roundify_8px_2, TweenInfo.new(0.2), {Position = UDim2.new(30, 30, 30)}):Play()
-					TS:Create(TextButton_Roundify_8px, TweenInfo.new(0.2), {ImageColor3 = presetColor}):Play()
+					TS:Create(Circle, TweenInfo.new(0.2), {Position = UDim2.new(30, 30, 30)}):Play()
+					TS:Create(Circle, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(0, 165, 247)}):Play()
 
 				else
 
-					TS:Create(TextButton_Roundify_8px_2, TweenInfo.new(0.2), {Position = UDim2.new(-0.65, 0, 0.286, 0)}):Play()
-					TS:Create(TextButton_Roundify_8px, TweenInfo.new(0.2), {ImageColor3 = Color3.fromRGB(27, 27, 27)}):Play()
+					TS:Create(Circle, TweenInfo.new(0.2), {Position = UDim2.new(-0.65, 0, 0.286, 0)}):Play()
+					TS:Create(Circle, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(193, 193, 193)}):Play()
 
 				end
 
