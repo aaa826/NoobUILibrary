@@ -1,14 +1,4 @@
---[[  
-                                                              
-           ________   ________  ________                                                   ______
-|\     |   |      |   |      |  |      |   	|        |    |		|          |      |      |
-| \    |   |      |   |      |  |      |   	|        |    |		|          |      |      |
-|  \   |   |      |   |      |  |______|   	|        |    |         |          |      |______| 
-|   \  |   |      |   |      |  |      |   	|        |    |         |          |      |      |
-|    \ |   |      |   |      |  |      |   	|        |    |         |          |      |      |
-|      |   |______|   |______|  |______|   	|________|    |         |_______   |      |______|
-               
---]]          
+      
 
 local Library = {}
 
@@ -109,7 +99,7 @@ function Library:Create(hubname, gamename)
 		PageButton.TextStrokeTransparency = 0.960
         PageButton.Visible = true
 		PageButton.MouseButton1Down:Connect(function()
-			for i, v in in next, Pages:GetChildren() do 
+			for i, v in next, Pages:GetChildren() do 
 			v.Visible = false
 			end
 			Page.Visible = true
@@ -448,7 +438,7 @@ function Library:Create(hubname, gamename)
 			Button_2.TextXAlignment = Enum.TextXAlignment.Left
 			Button_2.MouseButton1Down:Connect(function()
 				for i,v in next, itemlist do 
-					itemnumber, = itemnumber + 1 
+					itemnumber = itemnumber + 1 
 					pagesize = pagesize + 50
 					local Button_3 = Instance.new("TextButton")
 					Button_3.Name = "Button"
