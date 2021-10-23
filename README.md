@@ -10,14 +10,14 @@ or click this to see it
 
 First, Before anything else. Paste this into the script.
 ```lua
-   local urlocalname = loadstring(game:HttpGet("https://raw.githubusercontent.com/aaa826/NoobUILibrary/main/NoobUI.lua"))()
+   local UI = loadstring(game:HttpGet("https://raw.githubusercontent.com/aaa826/NoobUILibrary/main/NoobUI.lua"))()
 ```
 You can rename "urlocalname" to whatever but i like UI
 Next you do:
 ```lua
-   local Window = uilocalname:Create("guiname", "gamename")
+   local Window = UI:Create("guiname", "gamename")
 ```
-CONGRATS! You initizaled the UI Library! But we arent done. To make a page put this code in
+CONGRATS! You initizaled the UI Library! But we arent done. To make a page put this code in: (PS Anything with a Name here you can Change! However you must change anything calling it to that. If you wish, ill make a tutorial.)
 ```lua
   local Pagename = Window:Page("PageName", true)
 ```
