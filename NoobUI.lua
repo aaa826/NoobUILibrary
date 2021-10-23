@@ -83,7 +83,7 @@ function Library:Create(hubname, gamename, presetColor)
 
 		
 		
-		PageButton.Name = pagename or "PageButton"
+		PageButton.Name = "PageButton"
 		PageButton.Parent = TabHolder
 		PageButton.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
 		PageButton.BorderSizePixel = 0
@@ -249,7 +249,7 @@ function Library:Create(hubname, gamename, presetColor)
 			UICorner_11.Parent = Circle
 
 			local toggled = false
-            local TS = 
+     		        local TS = game:GetService("TweenService")
 			Circle.MouseButton1Down:Connect(function()
 
 				if toggled == false then
