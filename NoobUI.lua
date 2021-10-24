@@ -69,7 +69,7 @@ function Library:Create(hubname, gamename, presetColor)
 	UICorner_12.Parent = Hub
 
 	Pages.Name = "Pages"
-	Pages.Parent = Section
+	Pages.Parent = Container
 
 	local Win = {}
 
@@ -97,7 +97,7 @@ function Library:Create(hubname, gamename, presetColor)
 		PageButton.TextTransparency = 0.74
 		PageButton.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
 		PageButton.TextStrokeTransparency = 0.960
-        PageButton.Visible = true
+       		PageButton.Visible = true
 		PageButton.MouseButton1Down:Connect(function()
 			for i, v in next, Pages:GetChildren() do 
 			v.Visible = false
