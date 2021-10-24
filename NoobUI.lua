@@ -110,10 +110,6 @@ function Library:Create(hubname, gamename, presetColor)
 		Page.Size = UDim2.new(0, 386, 0, 351)
 		Page.Visible = false
 		Page.CanvasSize = UDim2.new(0, 0, 1, 0)
-		if Main == true then
-			Page.Visible = true
-			PageButton.BackgroundColor3 = Color3.fromRGB(230, 35, 69)
-		end
 
 		UIList.Parent = Page
 		UIList.HorizontalAlignment = Enum.HorizontalAlignment.Center
@@ -125,7 +121,7 @@ function Library:Create(hubname, gamename, presetColor)
 		UIListLayout.SortOrder = Enum.SortOrder.Name
 		UIListLayout.Padding = UDim.new(0, 15)
 
-		if Main == true then
+		if mainpage == true then
 			Page.Visible = true
 			PageButton.BackgroundColor3 = Color3.fromRGB(230, 35, 69)
 		end
