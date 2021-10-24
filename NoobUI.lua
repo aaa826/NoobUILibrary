@@ -83,13 +83,13 @@ function Library:Create(hubname, gamename, presetColor)
 
 		
 		
-		PageButton.Name = "PageButton"
+		PageButton.Name = pagename or "PageButton"
 		PageButton.Parent = TabHolder
 		PageButton.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
 		PageButton.BorderSizePixel = 0
 		PageButton.Position = UDim2.new(0.0408163257, 0, 0.0229226369, 0)
 		PageButton.Size = UDim2.new(0, 135, 0, 46)
-		PageButton.AutoButtonColor = true
+		PageButton.AutoButtonColor = false
 		PageButton.Font = Enum.Font.SourceSansLight
 		PageButton.Text = pagename or "Page"
 		PageButton.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -108,7 +108,7 @@ function Library:Create(hubname, gamename, presetColor)
 		UICorner.CornerRadius = UDim.new(0.0299999993, 8)
 		UICorner.Parent = PageButton
 
-      	 	Page.Name = "Page"
+      	 	Page.Name = pagename or "Page"
 		Page.Parent = Pages
 		Page.Active = true
 		Page.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -119,6 +119,7 @@ function Library:Create(hubname, gamename, presetColor)
 		Page.CanvasSize = UDim2.new(0, 0, 1, 0)
 		if Main == true then
 			Page.Visible = true
+			PageButton.BackgroundColor3 = Color3.fromRGB(230, 35, 69)
 		end
 
 		UIList.Parent = Page
@@ -131,11 +132,11 @@ function Library:Create(hubname, gamename, presetColor)
 		UIListLayout.SortOrder = Enum.SortOrder.Name
 		UIListLayout.Padding = UDim.new(0, 15)
 
-
-		if mainpage then
+		if Main == true then
 			Page.Visible = true
-			PageButton.TextTransparency = 0
+			PageButton.BackgroundColor3 = Color3.fromRGB(230, 35, 69)
 		end
+		
 		local PageItems = {}
 
 		function PageItems:NewButton(buttonname, callback)
