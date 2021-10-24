@@ -9,7 +9,6 @@ function Library:Create(hubname, gamename, presetColor)
 	local Hubs = Instance.new("TextLabel")
 	local Game = Instance.new("TextLabel")
 	local Pages = Instance.new("Folder")
-	local UIListLayout = Instance.new("UIListLayout")
 	
 	Hub.Name = "Hub"
 	Hub.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -58,12 +57,6 @@ function Library:Create(hubname, gamename, presetColor)
 	Game.TextScaled = true
 	Game.TextSize = 14.000
 	Game.TextWrapped = true
-	
-
-	UIListLayout_2.Parent = Section
-	UIListLayout_2.HorizontalAlignment = Enum.HorizontalAlignment.Center
-	UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
-	UIListLayout_2.Padding = UDim.new(0, 10)
 
 	UICorner_12.CornerRadius = UDim.new(0.100000001, 8)
 	UICorner_12.Parent = Hub
