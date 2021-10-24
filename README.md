@@ -54,7 +54,7 @@ end)
 So the completed code should look like:
 ```lua
 local urlocalname = loadstring(game:HttpGet("https://raw.githubusercontent.com/aaa826/NoobUILibrary/main/NoobUI.lua"))()
-local Window = uilocalname:Create("guiname", "gamename")
+local Window = urlocalname:Create("guiname", "gamename")
 
 local Page = Window:Page("pagename1", true)
 Page:NewDropdown("Dropdownname", {"item1", "item2", "item3"}, function()
