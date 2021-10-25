@@ -1,14 +1,13 @@
-      
-
 local Library = {}
 
-function Library:Create(hubname, gamename, presetColor)
+function Library:Create(hubname, gamename)
 	local Hub = Instance.new("ScreenGui")
 	local Container = Instance.new("Frame")
 	local TabHolder = Instance.new("ScrollingFrame")
 	local Hubs = Instance.new("TextLabel")
 	local Game = Instance.new("TextLabel")
 	local Pages = Instance.new("Folder")
+	local UIListLayout = Instance.new("UIListLayout")
 	
 	Hub.Name = "Hub"
 	Hub.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -31,6 +30,11 @@ function Library:Create(hubname, gamename, presetColor)
 	TabHolder.Size = UDim2.new(0, 167, 0, 351)
 	TabHolder.CanvasSize = UDim2.new(0, 0, 0.600000024, 0)
 	TabHolder.ScrollBarThickness = 0
+
+	UIListLayout.Parent = TabHolder
+	UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+	UIListLayout.SortOrder = Enum.SortOrder.Name
+	UIListLayout.Padding = UDim.new(0, 15)
 
 	Hubs.Name = "Hubs"
 	Hubs.Parent = TabHolder
@@ -73,6 +77,7 @@ function Library:Create(hubname, gamename, presetColor)
 		local PageButton = Instance.new("TextButton")
 		local UICorner = Instance.new("UICorner")
 		
+			
 
 		
 		
@@ -90,9 +95,9 @@ function Library:Create(hubname, gamename, presetColor)
 		PageButton.TextTransparency = 0.74
 		PageButton.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
 		PageButton.TextStrokeTransparency = 0.960
-       		PageButton.Visible = true
+       	PageButton.Visible = true
 		PageButton.MouseButton1Down:Connect(function()
-			for i, v in next, Pages:GetChildren() do 
+		for i,v in next, Pages:GetChildren() do 
 			v.Visible = false
 			end
 			Page.Visible = true
@@ -101,7 +106,7 @@ function Library:Create(hubname, gamename, presetColor)
 		UICorner.CornerRadius = UDim.new(0.0299999993, 8)
 		UICorner.Parent = PageButton
 
-      	 	Page.Name = pagename or "Page"
+      	Page.Name = pagename or "Page"
 		Page.Parent = Pages
 		Page.Active = true
 		Page.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -110,16 +115,11 @@ function Library:Create(hubname, gamename, presetColor)
 		Page.Size = UDim2.new(0, 386, 0, 351)
 		Page.Visible = false
 		Page.CanvasSize = UDim2.new(0, 0, 1, 0)
-
+		
 		UIList.Parent = Page
 		UIList.HorizontalAlignment = Enum.HorizontalAlignment.Center
 		UIList.SortOrder = Enum.SortOrder.LayoutOrder
 		UIList.Padding = UDim.new(0, 10)
-
-		UIListLayout.Parent = TabHolder
-		UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
-		UIListLayout.SortOrder = Enum.SortOrder.Name
-		UIListLayout.Padding = UDim.new(0, 15)
 
 		if mainpage == true then
 			Page.Visible = true
@@ -175,7 +175,7 @@ function Library:Create(hubname, gamename, presetColor)
 				pcall(callback)
 			end)
 
-			Page.CanvasSize = Page.CanvasSize + UDim2.new(0,0,0,UIListLayout_2.AbsoluteContentSize.Y)
+			Page.CanvasSize = Page.CanvasSize + UDim2.new(0,0,0,UIList.AbsoluteContentSize.Y)
 
 		end
 		function PageItems:NewToggle(togglename, callback)
@@ -259,7 +259,7 @@ function Library:Create(hubname, gamename, presetColor)
 
 			end)
 
-			Page.CanvasSize = Page.CanvasSize + UDim2.new(0,0,0,UIListLayout_2.AbsoluteContentSize.Y)
+			Page.CanvasSize = Page.CanvasSize + UDim2.new(0,0,0,UIList.AbsoluteContentSize.Y)
 
 
 
@@ -352,34 +352,34 @@ function Library:Create(hubname, gamename, presetColor)
 			UICorner_8.Parent = InnerSlider
 
 			uilocate.MouseButton1Down:Connect(function()
-				Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 244) *InnerSlider.AbsoluteSize.X) + tonumber(minvalue)) or 0
+			Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 318) * InnerSlider.AbsoluteSize.X) + tonumber(minvalue)) or 0
+			pcall(function()
+				callback(Value)
+			end)
+			InnerSlider.Size = UDim2.new(0, math.clamp(mouse.X - InerSlider.AbsolutePosition.X, 0, 318), 0, 16)
+			moveconnection = mouse.Move:Connect(function()
+				Value.Text = Value
+				Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 318) * InnerSlider.AbsoluteSize.X) + tonumber(minvalue))
 				pcall(function()
 					callback(Value)
 				end)
-				InnerSlider.Size = UDim2.new(0, math.clamp(mouse.X -InnerSlider.AbsolutePosition.X, 0, 244), 0, 9)
-				moveconnection = mouse.Move:Connect(function()
-					value.Text = Value
-					Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 244) *InnerSlider.AbsoluteSize.X) + tonumber(minvalue))
+				InnerSlider.Size = UDim2.new(0, math.clamp(mouse.X - InnerSlider.AbsolutePosition.X, 0, 318), 0, 16)
+			end)
+			releaseconnection = uis.InputEnded:Connect(function(Mouse)
+				if Mouse.UserInputType == Enum.UserInputType.MouseButton1 then
+					Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 318) * InnerSlider.AbsoluteSize.X) + tonumber(minvalue))
 					pcall(function()
 						callback(Value)
 					end)
-					InnerSlider.Size = UDim2.new(0, math.clamp(mouse.X -InnerSlider.AbsolutePosition.X, 0, 244), 0, 9)
-				end)
-				releaseconnection = UIS.InputEnded:Connect(function(Mouse)
-					if Mouse.UserInputType == Enum.UserInputType.MouseButton1 then
-						Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 244) *InnerSlider.AbsoluteSize.X) + tonumber(minvalue))
-						TextLabel_6.Text = Value						
-						pcall(function()
-							callback(Value)
-						end)
-						InnerSlider.Size = UDim2.new(0, math.clamp(mouse.X -InnerSlider.AbsolutePosition.X, 0, 244), 0, 9)
-						moveconnection:Disconnect()
-						releaseconnection:Disconnect()
-					end
-				end)
+					InnerSlider.Size = UDim2.new(0, math.clamp(mouse.X - InnerSlider.AbsolutePosition.X, 0, 318), 0, 16)
+					moveconnection:Disconnect()
+					releaseconnection:Disconnect()
+				end
 			end)
+		end)
+		
 
-			Page.CanvasSize = Page.CanvasSize + UDim2.new(0,0,0,UIListLayout_2.AbsoluteContentSize.Y)
+			Page.CanvasSize = Page.CanvasSize + UDim2.new(0,0,0,UIList.AbsoluteContentSize.Y)
 
 		end
 		function PageItems:NewDropdown(dropdownname, itemlist, callback)
@@ -491,7 +491,7 @@ function Library:Create(hubname, gamename, presetColor)
 
 			
 
-			Page.CanvasSize = Page.CanvasSize + UDim2.new(0,0,0,UIListLayout_2.AbsoluteContentSize.Y)
+			Page.CanvasSize = Page.CanvasSize + UDim2.new(0,0,0,UIList.AbsoluteContentSize.Y)
 
 		end
 
