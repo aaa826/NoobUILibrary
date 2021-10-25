@@ -139,7 +139,7 @@ function Library:Create(hubname, gamename, presetColor)
 
 
 			ButtonStuff.Name = "ButtonStuff"
-			ButtonStuff.Parent = Section
+			ButtonStuff.Parent = Page
 			ButtonStuff.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
 			ButtonStuff.Position = UDim2.new(0.0385604128, 0, 0.354285747, 0)
 			ButtonStuff.Size = UDim2.new(0, 367, 0, 48)
@@ -187,7 +187,7 @@ function Library:Create(hubname, gamename, presetColor)
 			local UICorner_11 = Instance.new("UICorner")
 
 			Toggle1.Name = "Toggle1"
-			Toggle1.Parent = Section
+			Toggle1.Parent = Page
 			Toggle1.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
 			Toggle1.Position = UDim2.new(0.0308483299, 0, 0.599999964, 0)
 			Toggle1.Size = UDim2.new(0, 367, 0, 40)
@@ -279,7 +279,7 @@ function Library:Create(hubname, gamename, presetColor)
 			local UICorner_8 = Instance.new("UICorner")
 
 			Slider.Name = "Slider"
-			Slider.Parent = Section
+			Slider.Parent = Page
 			Slider.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
 			Slider.BorderSizePixel = 0
 			Slider.Position = UDim2.new(0.0282776356, 0, 0.0257142857, 0)
@@ -397,7 +397,7 @@ function Library:Create(hubname, gamename, presetColor)
 			local dropopened = false
 
 			Dropdown.Name = "Dropdown"
-			Dropdown.Parent = Section
+			Dropdown.Parent = Page
 			Dropdown.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
 			Dropdown.Position = UDim2.new(0.0388119556, 0, 0.748530805, 0)
 			Dropdown.Size = UDim2.new(0, 378, 0, 40)
