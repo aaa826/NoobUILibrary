@@ -1,4 +1,7 @@
 local Library = {}
+local UIS = game:GetService("UserInputService")
+local TS = game:GetService("TweenService")
+local mouse = game.Players.LocalPlayer:GetMouse()
 
 function Library:Create(hubname, gamename)
 	local Hub = Instance.new("ScreenGui")
@@ -10,7 +13,7 @@ function Library:Create(hubname, gamename)
 	local UIListLayout = Instance.new("UIListLayout")
 	
 	Hub.Name = "Hub"
-	Hub.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+	Hub.Parent = game.CoreGui
 	Hub.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 	Container.Name = "Container"
@@ -127,7 +130,6 @@ function Library:Create(hubname, gamename)
 		end
 		
 		local PageItems = {}
-
 		function PageItems:NewButton(buttonname, callback)
 			local callback = callback or function() end
 
