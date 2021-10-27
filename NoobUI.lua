@@ -506,7 +506,7 @@ function Library:Create(hubname, gamename)
 	
 	end
 
-	do return Win 
+	return Win 
  
 end
 
