@@ -358,7 +358,7 @@ function Library:Create(hubname, gamename)
 			pcall(function()
 				callback(Value)
 			end)
-			InnerSlider.Size = UDim2.new(0, math.clamp(mouse.X - InerSlider.AbsolutePosition.X, 0, 318), 0, 16)
+			InnerSlider.Size = UDim2.new(0, math.clamp(mouse.X - InnerSlider.AbsolutePosition.X, 0, 318), 0, 16)
 			moveconnection = mouse.Move:Connect(function()
 				Value.Text = Value
 				Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 318) * InnerSlider.AbsoluteSize.X) + tonumber(minvalue))
