@@ -266,7 +266,7 @@ function Library:Create(hubname, gamename)
 
 
 		end
-		function PageItems:NewSlider(slidername, callback)
+		function PageItems:NewSlider(slidername, minvalue, maxvalue, callback)
 			local callback = callback or function() end
 
 			local Slider = Instance.new("Frame")
