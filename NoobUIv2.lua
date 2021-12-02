@@ -159,7 +159,7 @@ UICorner_2.Parent = PageButton
 local PageItems = {}
 
 function PageItems:NewButton(buttonname, callback)
-local callback = callback or function() end)
+local callback = callback or function() end
     local ButtonElement = Instance.new("Frame")
 local UICorner_3 = Instance.new("UICorner")
 local TextButton = Instance.new("TextButton")
@@ -201,7 +201,7 @@ end)
 Page.CanvasSize = Page.CanvasSize + UDim2.new(0,0,0,UIList.AbsoluteContentSize.Y)
 
 function PageItems:NewSlider(slidername, minvalue, maxvalue, callback)
-local callback = callback or function() end)
+local callback = callback or function() end
 local Slider = Instance.new("Frame")
 local UICorner_4 = Instance.new("UICorner")
 local TextLabel_3 = Instance.new("TextLabel")
@@ -294,7 +294,7 @@ end)
 Page.CanvasSize = Page.CanvasSize + UDim2.new(0,0,0,UIList.AbsoluteContentSize.Y)
 
 function PageItems:NewDropDown(dropdownname, itemlist, callback)
-    local callback = callback or function() end)
+    local callback = callback or function() end
     local DropDown = Instance.new("Frame")
     local UICorner_7 = Instance.new("UICorner")
     local TextLabel_4 = Instance.new("TextLabel")
@@ -414,7 +414,7 @@ dropopened = not dropopened
 end)
 Page.CanvasSize = Page.CanvasSize + UDim2.new(0,0,0,UIList.AbsoluteContentSize.Y)
 function PageItems:NewToggle(togglename, callback)
-    local callback = callback or function() end)
+    local callback = callback or function() end
     local Toggle = Instance.new("Frame")
     local UICorner_16 = Instance.new("UICorner")
     local TextLabel_5 = Instance.new("TextLabel")
