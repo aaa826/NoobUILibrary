@@ -1,14 +1,26 @@
 -- Gui to Lua
 -- Version: 3.2
 local Library = {}
-local mouse = game.Players.LocalPlayer:GetMouse()
-local TS = game:GetService("TweenService")
 local UIS = game:GetService("UserInputService")
+local TS = game:GetService("TweenService")
+local mouse = game.Players.LocalPlayer:GetMouse()
+
+
 function Library:Window(hubname, gamename)
     local NX = Instance.new("ScreenGui")
     local Pages = Instance.new("Folder")
     local ElementHolder = Instance.new("ScrollingFrame")
     local UIListLayout_2 = Instance.new("UIListLayout")
+	local SideBar = Instance.new("Frame")
+    local shadowHolder = Instance.new("Frame")
+    local umbraShadow = Instance.new("ImageLabel")
+    local penumbraShadow = Instance.new("ImageLabel")
+    local ambientShadow = Instance.new("ImageLabel")
+    local WaterMark = Instance.new("Frame")
+    local TextLabel = Instance.new("TextLabel")
+    local TextLabel_2 = Instance.new("TextLabel")
+    local TabHolder = Instance.new("Frame")
+    local UIListLayout = Instance.new("UIListLayout")
 
     NX.Name = "NX"
 NX.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -16,8 +28,6 @@ NX.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 Pages.Name = "Pages"
 Pages.Parent = NX
-
-
 
 ElementHolder.Name = "ElementHolder"
 ElementHolder.Parent = Page
@@ -31,32 +41,8 @@ ElementHolder.ScrollBarThickness = 0
 UIListLayout_2.Parent = ElementHolder
 UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
 UIListLayout_2.Padding = UDim.new(0, 5)
-local Win = {}
-Win:NewTab(pagename, mainpage)
-    local Page = Instance.new("Frame")
-    local UICorner = Instance.new("UICorner")
-    local SideBar = Instance.new("Frame")
-    local shadowHolder = Instance.new("Frame")
-    local umbraShadow = Instance.new("ImageLabel")
-    local penumbraShadow = Instance.new("ImageLabel")
-    local ambientShadow = Instance.new("ImageLabel")
-    local WaterMark = Instance.new("Frame")
-    local TextLabel = Instance.new("TextLabel")
-    local TextLabel_2 = Instance.new("TextLabel")
-    local TabHolder = Instance.new("Frame")
-    local UIListLayout = Instance.new("UIListLayout")
-    local PageButton = Instance.new("TextButton")
-    local UICorner_2 = Instance.new("UICorner")
-
-Page.Name = "Page"
-Page.Parent = Pages
-Page.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
-Page.Position = UDim2.new(0.0940665677, 0, 0.17693837, 0)
-Page.Size = UDim2.new(0, 596, 0, 325)
-
-UICorner.Parent = Page
-
-SideBar.Name = "SideBar"
+	
+	SideBar.Name = "SideBar"
 SideBar.Parent = Page
 SideBar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 SideBar.BackgroundTransparency = 1.000
@@ -144,6 +130,22 @@ UIListLayout.Parent = TabHolder
 UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
 UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 UIListLayout.Padding = UDim.new(0, 5)
+local Win = {}
+Win:NewTab(pagename, mainpage)
+    local Page = Instance.new("Frame")
+    local UICorner = Instance.new("UICorner")
+    local PageButton = Instance.new("TextButton")
+    local UICorner_2 = Instance.new("UICorner")
+
+Page.Name = "Page"
+Page.Parent = Pages
+Page.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+Page.Position = UDim2.new(0.0940665677, 0, 0.17693837, 0)
+Page.Size = UDim2.new(0, 596, 0, 325)
+
+UICorner.Parent = Page
+
+
 
 PageButton.Name = "PageButton"
 PageButton.Parent = TabHolder
@@ -154,13 +156,6 @@ PageButton.Font = Enum.Font.GothamSemibold
 PageButton.Text = "PageName"
 PageButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 PageButton.TextSize = 14.000
-		PageButton.Visible = true
-		PageButton.MouseButton1Down:Connect(function()
-		for i,v in next, Pages:GetChildren() do 
-			v.Visible = false
-			end
-			Page.Visible = true
-		end)
 
 UICorner_2.Parent = PageButton
 local PageItems = {}
@@ -201,6 +196,12 @@ touch_app.ZIndex = 2
 touch_app.Image = "rbxassetid://3926305904"
 touch_app.ImageRectOffset = Vector2.new(84, 204)
 touch_app.ImageRectSize = Vector2.new(36, 36)
+Button.MouseButton1Click:Connect(function()
+    pcall(callback)
+end)
+
+Page.CanvasSize = Page.CanvasSize + UDim2.new(0,0,0,UIList.AbsoluteContentSize.Y)
+
 function PageItems:NewSlider(slidername, minvalue, maxvalue, callback)
 local callback = callback or function() end)
 local Slider = Instance.new("Frame")
@@ -292,6 +293,7 @@ TextButton_2.MouseButton1Down:Connect(function()
         end
     end)
 end)
+Page.CanvasSize = Page.CanvasSize + UDim2.new(0,0,0,UIList.AbsoluteContentSize.Y)
 
 function PageItems:NewDropDown(dropdownname, itemlist, callback)
     local callback = callback or function() end)
@@ -412,6 +414,7 @@ end
 dropopened = not dropopened
 
 end)
+Page.CanvasSize = Page.CanvasSize + UDim2.new(0,0,0,UIList.AbsoluteContentSize.Y)
 function PageItems:NewToggle(togglename, callback)
     local callback = callback or function() end)
     local Toggle = Instance.new("Frame")
@@ -483,26 +486,21 @@ end)
 
 
 end
+Page.CanvasSize = Page.CanvasSize + UDim2.new(0,0,0,UIList.AbsoluteContentSize.Y)
+
+     
+		end
+
+		return PageItems
 
 
-        end
-        return PageItems
-    end
-    return Win
+	end
+
+	return Win
+
 end
+
 return Library
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
