@@ -1,5 +1,3 @@
--- Gui to Lua
--- Version: 3.2
 local Library = {}
 local UIS = game:GetService("UserInputService")
 local TS = game:GetService("TweenService")
