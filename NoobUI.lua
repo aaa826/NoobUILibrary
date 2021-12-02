@@ -65,7 +65,6 @@ function Library:Create(hubname, gamename)
 	Game.TextSize = 14.000
 	Game.TextWrapped = true
 
-	UICorner_12.CornerRadius = UDim.new(0.100000001, 8)
 	UICorner_12.Parent = Hub
 
 	Pages.Name = "Pages"
