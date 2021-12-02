@@ -65,8 +65,6 @@ function Library:Create(hubname, gamename)
 	Game.TextSize = 14.000
 	Game.TextWrapped = true
 
-	UICorner_12.Parent = Hub
-
 	Pages.Name = "Pages"
 	Pages.Parent = Container
 
