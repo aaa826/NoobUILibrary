@@ -154,6 +154,13 @@ PageButton.Font = Enum.Font.GothamSemibold
 PageButton.Text = "PageName"
 PageButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 PageButton.TextSize = 14.000
+		PageButton.Visible = true
+		PageButton.MouseButton1Down:Connect(function()
+		for i,v in next, Pages:GetChildren() do 
+			v.Visible = false
+			end
+			Page.Visible = true
+		end)
 
 UICorner_2.Parent = PageButton
 local PageItems = {}
