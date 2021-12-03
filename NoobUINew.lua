@@ -140,6 +140,10 @@ Page.Parent = Pages
 Page.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
 Page.Position = UDim2.new(0.0940665677, 0, 0.17693837, 0)
 Page.Size = UDim2.new(0, 596, 0, 325)
+	if mainpage == true then
+			Page.Visible = true
+			PageButton.BackgroundColor3 = Color3.fromRGB(230, 35, 69)
+		end
 
 UICorner.Parent = Page
 
