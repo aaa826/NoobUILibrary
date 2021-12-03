@@ -39,7 +39,7 @@ ElementHolder.ScrollBarThickness = 0
 UIListLayout_2.Parent = ElementHolder
 UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
 UIListLayout_2.Padding = UDim.new(0, 5)
-	
+	--yeah
 	SideBar.Name = "SideBar"
 SideBar.Parent = Page
 SideBar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -205,6 +205,7 @@ end)
 Page.CanvasSize = Page.CanvasSize + UDim2.new(0,0,0,UIList.AbsoluteContentSize.Y)
 
 function PageItems:NewSlider(slidername, minvalue, maxvalue, callback)
+			
 local callback = callback or function() end
 local Slider = Instance.new("Frame")
 local UICorner_4 = Instance.new("UICorner")
